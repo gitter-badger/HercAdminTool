@@ -376,3 +376,7 @@ $config["permissions"] = array(
 		'zenylog'			=> "View Zeny Transaction Logs",
 	),
 );
+
+// Is the panel installed?
+$config['panel_installed'] = "no"; // If you change this from yes -> no the panel will think you're performing a reinstall and start the installation script. 
+											  // Use with caution. A reinstall will DROP all tables and reupload them.

@@ -4,6 +4,9 @@ class Dashboard extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();
+		if ($this->config->item('panel_installed') == "no") {
+			redirect('install', 'refresh');
+		}
 		if (!$this->session->userdata('loggedin')) {
 			redirect('user/login', 'refresh');
 		}
