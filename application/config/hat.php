@@ -79,6 +79,7 @@ $config['ragnarok_servers'] = array(
 		'reset_map'				=> "prontera", 		// Map name to reset players to
 		'reset_x'				=> "142",				// X coordinate to reset players to
 		'reset_y'				=> "241",				// Y coordinate to reset players to
+		'conf_db_location'	=> "/home/ragnarok/db/re/",	// Enter the full path to both item_db and mob_db conf files.
 		'update_method'		=> "svn",				// Update method. Three possible choices, svn = will issue "svn up" command, git = will issue "git pull", off = disable function. NOTE: to be able to use this the repository must have already been cloned or checked out.
 	),
 	/*'2'	=> array(
@@ -90,16 +91,19 @@ $config['ragnarok_servers'] = array(
 		'login_port'			=> 6900,					// Login Port number for this server
 		'char_port'				=> 6121,					// Character Port number for this server
 		'map_port'				=> 5121,					// Map Port number for this server
-		'server_path'			=> "/home/ragnarok/",	// Path to server files.
+		'server_path'			=> "/home/ragnarok2/",	// Path to server files.
 		'login_server_exec'	=> "login-server",	// Login server executable 
 		'char_server_exec'	=> "char-server",		// Char server executable
 		'map_server_exec'		=> "map-server",		// Map server executable
 		'reset_map'				=> "prontera", 		// Map name to reset players to
 		'reset_x'				=> "142",				// X coordinate to reset players to
 		'reset_y'				=> "241",				// Y coordinate to reset players to
+		'conf_db_location'	=> "/home/ragnarok2/db/re/",	// Enter the full path to both item_db and mob_db conf files.
 		'update_method'		=> "svn",				// Update method. Three possible choices, svn = will issue "svn up" command, git = will issue "git pull", off = disable function. NOTE: to be able to use this the repository must have already been pulled or checked out.
 	),*/
 );
+
+$config['check_db_sync_status'] = 1209600; // Requery both conf and sql for differences in this timeframe. Time in seconds. Default 1209600 (14 days).
 			
 /* An array of block reasons. You can add more by adding a key of the next number and a reason in quotes. */
 $config["ban_reasons"] = array(

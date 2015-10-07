@@ -105,14 +105,14 @@
 			<?php } ?>
 			<?php if ($check_perm['items'] == 1 || $check_perm['itemshop'] == 1 || $check_perm['mobs'] == 1 || $check_perm['sftp'] == 1 || $check_perm['serverconfig'] == 1) { ?>
 				<li>
-					<a href="#"><i class="fa fa-hdd-o fa-fw"></i> Server Setup<span class="fa arrow"></span></a>
+					<a href="#"><i class="fa fa-hdd-o fa-fw"></i> Server Setup & Database<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
 						<li>
 							<a href="/server/hercules">Hercules Info/Maintenance</a>
 						</li>
 						<?php if ($check_perm['items'] == 1) { ?>
 							<li>
-								<a href="/server/itemdb">Item Database</a>
+								<a href="/database/itemdb_search">Item Database</a>
 							</li>
 						<?php } ?>
 						<?php if ($check_perm['itemshop'] == 1) { ?>
