@@ -14,11 +14,6 @@
 			<li>
 				<a href="<?php echo base_url(); ?>"><i class="fa fa-home fa-fw"></i> Dashboard</a>
 			</li>
-			<?php if ($check_perm['serverstats'] == 1) { ?>
-				<li>
-					<a href="/server/stats"><i class="fa fa-dashboard fa-fw"></i> Server Performance</a>
-				</li>
-			<?php } ?>
 			<li>
 				<a href="#"><i class="fa fa-user fa-fw"></i> Accounts<span class="fa arrow"></span></a>
 				<ul class="nav nav-second-level">
@@ -62,7 +57,7 @@
 					<ul class="nav nav-second-level">
 						<?php if ($check_perm['atcmdlog'] == 1) { ?>
 							<li>
-								<a href="/gamelogs/atcmdsearch">@command</a>
+								<a href="/gamelogs/atcmd_search">@command</a>
 							</li>
 						<?php } ?>
 						<?php if ($check_perm['branchlog'] == 1) { ?>
@@ -92,7 +87,7 @@
 						<?php } ?>
 						<?php if ($check_perm['picklog'] == 1) { ?>
 							<li>
-								<a href="/gamelogs/pick">pick</a>
+								<a href="/gamelogs/pick_search">pick</a>
 							</li>
 						<?php } ?>									
 						<?php if ($check_perm['zenylog'] == 1) { ?>								
@@ -138,6 +133,43 @@
 					</ul>
 				</li>
 			<?php } ?>
+			<?php if ($check_perm['level1zeny'] == 1 || $check_perm['nocharaccts'] == 1 || $check_perm['delcharsaccts'] == 1 || $check_perm['top100'] == 1 || $check_perm['mvpkill'] == 1 || $check_perm['itemcount'] == 1) { ?>
+				<li>
+					<a href="#"><i class="fa fa-hdd-o fa-fw"></i> Server Analysis<span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level">
+						<?php if ($check_perm['itemcount'] == 1) { ?>
+							<li>
+								<a href="/analysis/itemcount">Item Count by character</a>
+							</li>
+						<?php } ?>
+						<?php if ($check_perm['level1zeny'] == 1) { ?>
+							<li>
+								<a href="/analysis/level1zeny">Level 1 Characters > 1m zeny</a>
+							</li>
+						<?php } ?>
+						<?php if ($check_perm['nocharaccts'] == 1) { ?>
+							<li>
+								<a href="/analysis/nocharaccts">Accounts with no characters</a>
+							</li>
+						<?php } ?>
+						<?php if ($check_perm['delcharsaccts'] == 1) { ?>
+							<li>
+								<a href="/analysis/delchars">Accounts with deleted characters</a>
+							</li>
+						<?php } ?>
+						<?php if ($check_perm['top100'] == 1) { ?>
+							<li>
+								<a href="/analysis/top100">Top100 Characters by parameter</a>
+							</li>
+						<?php } ?>
+						<?php if ($check_perm['mvpkill'] == 1) { ?>
+							<li>
+								<a href="/analysis/mvpkill">MVP Kill amount</a>
+							</li>
+						<?php } ?>
+					</ul>
+				</li>
+			<?php } ?>
 			<?php if ($check_perm['editadmin'] == 1 || $check_perm['editgroups'] == 1) { ?>
 			<li>
 				<a href="#"><i class="fa fa-user-md fa-fw"></i> Panel Admin<span class="fa arrow"></span></a>
@@ -166,6 +198,9 @@
 			</li>
 			<?php } ?>
 		</ul>
+	</div>
+	<p>&nbsp;Powered by Hercules Admin Tool</p>
+	<p>&nbsp;Version 0.4.25.195-picklog-1</p>
 	</div>
 </div>
 </nav>

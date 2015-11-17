@@ -295,7 +295,7 @@
 							<h4>Num Flags</h4>
 							<button type="button" class="btn btn-info" id="addNumFlagOpen" data-toggle="modal" data-target="#addNumFlag" data-id="<?php echo $acct_data->account_id; ?>">Add NumFlag</button>
 							<div class="table-responsive">
-								<table class="table table-striped table-bordered table-hover" id="dataTables-listsm">
+								<table class="table table-striped table-bordered table-hover" id="dataTables-listflags">
 									<thead>
 										<tr>
 											<th>Key Name</th>
@@ -326,7 +326,7 @@
 							<h4>Str Flags</h4>
 							<button type="button" class="btn btn-info" id="addStrFlagOpen" data-toggle="modal" data-target="#addStrFlag" data-id="<?php echo $acct_data->account_id; ?>">Add StrFlag</button>
 							<div class="table-responsive">
-								<table class="table table-striped table-bordered table-hover" id="dataTables-listsm">
+								<table class="table table-striped table-bordered table-hover" id="dataTables-listflags">
 									<thead>
 										<tr>
 											<th>Key Name</th>
@@ -429,7 +429,7 @@
 							</thead>
 							<tbody>
 								<script>
-									var content = [];
+									var content_storage = [];
 								</script>
 								<?php foreach ($storage_items as $storageItem) { ?>
 									<tr item_id="<?php echo $storageItem['id']; ?>">
@@ -441,7 +441,6 @@
 										<td><?php echo $item_types[$storageItem['type']]; ?></td>
 										<td><?php echo $storageItem['unique_id']; ?></td>
 										<td>
-											<button type="submit" class="btn btn-success btn-sm <?php if ($check_perm['editstorageitem'] == 0) { echo "disabled"; } ?>" >Edit</button>&nbsp;
 											<button type="button" class="btn btn-danger btn-sm <?php if ($check_perm['editstorageitem'] == 0) { echo "disabled"; } ?>">Delete</button>
 										</td>
 									</tr>
@@ -464,8 +463,14 @@
 									else {
 										$bound = " ";
 									}
+									if ($check_perm['editstorageitem'] == 0) { 
+										$disabled = "disabled"; 
+									}
+									else {
+										$disabled = " ";
+									}
 									$json = "<div class='slider'>".
-										form_open('/account/edititem', array('class' => 'form-inline'), array('id' => $storageItem['id'], 'item_loc' => 'inventory', 'acctid' => $acct_data->account_id))."
+										form_open('/account/edititem', array('class' => 'form-inline'), array('id' => $storageItem['id'], 'item_loc' => 'inventory', 'acct_id' => $acct_data->account_id))."
 											<div class='panel-body'>
 												<div class='row'>
 													<div class='col-xs-3'>
@@ -492,12 +497,13 @@
 													<div class='col-xs-3'>
 														<strong>Card 4:</strong>&nbsp;<input type='number' name='card3' class='form-control' value='".$storageItem['card3']."' ".$readonly." /></br>
 													</div>
+													<button type='submit' class='btn btn-success btn-sm ".$disabled."'>Edit</button>
 												</div>
 											</div>
 										".form_close()."
 									</div>"; ?>
 									<script>
-										content[<?php echo $storageItem["id"]; ?>] = <?php echo json_encode($json); ?>;
+										content_storage[<?php echo $storageItem["id"]; ?>] = <?php echo json_encode($json); ?>;
 									</script>
 								<?php } ?>
 							</tbody>
