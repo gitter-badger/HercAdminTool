@@ -16,6 +16,7 @@ class MY_Controller extends CI_Controller {
 		$this->load->model('itemmodel');
 		$this->load->model('usermodel');
 		$this->load->model('dashboardmodel');
+		$this->load->model('databasemodel');
 		$this->load->model('servermodel');
 		$this->load->model('gamelogmodel');
 		$this->load->model('charmodel');

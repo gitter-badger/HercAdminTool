@@ -21,6 +21,12 @@ $config['last_mac_addon'] = "yes";
 // Full path to the root of your HAT installation (where the application, system and assets folders live). Include forward AND trailing slash! 
 $config['hat_path'] = "/var/www/hat/"; 
 
+// DB Loading method. This determines how the panel will load db's for editing.
+// SQL = load the information from the SQL database, then edit it back to the db.conf file.
+// DB = load the information from the db.conf file, and edit back to db.conf file.
+// HIGHLY recommended: DB 
+$config['db_loading_method'] = "DB";
+
 
 /* Email Settings. Settings for email here. */
 

@@ -23,4 +23,10 @@ class Database extends MY_Controller {
 	public function itemdb_list() {
 		
 	}
+	
+	public function itemdb_details($itemID) {
+		$this->usermodel->update_user_active($this->session_data['id'],"database/itemdb/details");
+		$data['itemInfo'] = $this->databasemodel->get_item_info($itemID);
+		$this->load->view('database/item/details', $data);
+	}
 }
